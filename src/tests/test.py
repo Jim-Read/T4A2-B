@@ -21,17 +21,6 @@ class TestProfiles(unittest.TestCase):
         cls.app_context.pop()                                           
 
    
-    def test_register_page(self):
-        response = self.client.get("/signup")
-
-        self.assertEqual(response.status_code, 200)
-
-    def test_home_page(self):
-        response = self.client.get("/")
-
-        self.assertEqual(response.status_code, 200)
-
-    def test_login_page(self):
-        response = self.client.get("/login")
-
+    def test_signup_page(self):
+        response = self.client.get('/signup')
         self.assertEqual(response.status_code, 200)
