@@ -37,7 +37,7 @@ jobs:
         with:
           host: 54.144.76.35
           username: test
-           key: ${{ SSH_KEY  }}
+          key: ${{ SSH_KEY }}
           port: 22
           script: |
             rm -rf T4A2-B
