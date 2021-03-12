@@ -61,6 +61,7 @@ def seed_db():
     db.session.commit()
 
     # Add time slots for each date into the DB
+    
     # timeslots gathered from time_date_slot()
 
     date_times = time_date_slots()

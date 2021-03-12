@@ -38,9 +38,8 @@ def time_date_slots():
     nl = []
 
     for a in dateList:
-        #nl.append(str(a))
         nl.append(a)
         
+    time_slots_dates = dict.fromkeys(nl, a_dict)
 
-    d = dict.fromkeys(nl, a_dict)
-    return d
+    return time_slots_dates
