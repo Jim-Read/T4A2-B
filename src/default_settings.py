@@ -11,7 +11,7 @@ class Config(object):
     def SQLALCHEMY_DATABASE_URI(self):                           
         value = os.environ.get("DB_URI")                            
         if not value:
-            raise ValueError("SQLALCHEMY_DATABASE_URI is not set")  
+            raise ValueError("DB_URI is not set")  
         return value  
 
 
