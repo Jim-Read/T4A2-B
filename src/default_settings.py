@@ -7,12 +7,12 @@ class Config(object):
     SQLALCHEMY_TRACK_MODIFICATIONS = False                    
 
 
-    @property
-    def SQLALCHEMY_DATABASE_URI(self):                           
-        value = os.environ.get("DB_URI")                            
-        if not value:
-            raise ValueError("DB_URI is not set")  
-        return value  
+    # @property
+    # def SQLALCHEMY_DATABASE_URI(self):                           
+    #     value = os.environ.get("DB_URI")                            
+    #     if not value:
+    #         raise ValueError("DB_URI is not set")  
+    #     return value  
 
 
     # @property
