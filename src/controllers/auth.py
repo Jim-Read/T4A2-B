@@ -1,27 +1,31 @@
+# Import Database
 from main import db
+
+# Import flask and its requirements
 from flask import Blueprint, render_template, redirect, url_for, request, flash
-from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, logout_user, login_required
-from models.User import User
-from forms.forms import RegistrationForm
-from forms.forms import InfoForm
-from flask import jsonify
 from flask_login import current_user
 
-from flask_wtf import FlaskForm
+# secure password with sha256 in database
+from werkzeug.security import generate_password_hash, check_password_hash
 
-from wtforms.fields.html5 import DateField
-from wtforms import validators, SubmitField
+# import created forms
+from forms.forms import RegistrationForm
+
+# import models
+from models.User import User
+
+
 auth = Blueprint('auth', __name__)
 
 
 # Signup Route
-
 @auth.route('/signup')
 def signup():
     return render_template('signup.html')
 
 
+# Sign up route
 @auth.route('/signup', methods=['POST'])
 def signup_post():
     try:
@@ -30,7 +34,12 @@ def signup_post():
             email = request.form.get('email')
             name = request.form.get('name')
             password = request.form.get('password')
-            new_user = User(email=email, name=name,password=generate_password_hash(password, method='sha256'),valid=False, membership="None", valid_till="None", is_admin=False)
+            new_user = User(email=email, name=name,
+                            password=generate_password_hash(
+                                password, method='sha256'),
+                            valid=False, membership="None",
+                            valid_till="None",
+                            is_admin=False)
             db.session.add(new_user)
             db.session.commit()
             flash('Please Log in below')
@@ -41,14 +50,14 @@ def signup_post():
 
     return render_template('signup.html', form=form, error=form.errors)
 
+
+# Show Log in page
 @auth.route('/login')
 def login():
     return render_template('login.html')
 
 
-
 # Login Route
-
 @auth.route('/login', methods=['POST'])
 def login_post():
     email = request.form.get('email')
@@ -65,19 +74,7 @@ def login_post():
     return redirect(url_for('main.profile'))
 
 
-
-# Logout Route
-
-@auth.route('/logout')
-@login_required
-def logout():
-    logout_user()
-    return redirect(url_for('main.index'))
-
-
-
-# User Password Change Route
-
+# User Password Change Route from within account on profile page
 @auth.route('/profile', methods=["POST"])
 @login_required
 def user_password_change():
@@ -94,13 +91,9 @@ def user_password_change():
     return redirect(url_for('main.profile'))
 
 
-
-# @auth.route('/send-mail/')
-# def send_mail():
-#     from flask.ext.sendmail import Message
-#     msg = Message("Hello",
-#                   sender="murrumbeenatennis@gmail.com",
-#                   recipients=["murrumbeenatennis@gmail.com"])
-#     msg.body = "testing"
-#     mail.send(msg)
-#     return print(msg)
+# Logout Route
+@auth.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('main.index'))
