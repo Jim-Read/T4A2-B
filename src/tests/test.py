@@ -1,6 +1,6 @@
 import unittest                                                        
 from main import create_app, db                                        
-from models.Users import Users
+from models.User import User
                               
 
 class TestProfiles(unittest.TestCase):                                     
@@ -21,6 +21,6 @@ class TestProfiles(unittest.TestCase):
         cls.app_context.pop()                                           
 
    
-    def test_signup_page(self):
-        response = self.client.get('/signup')
+    def test_index_page(self):
+        response = self.client.get('/')
         self.assertEqual(response.status_code, 200)
