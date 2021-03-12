@@ -15,36 +15,28 @@ class Config(object):
         return value  
 
 
-    @property
-    def SQLALCHEMY_DATABASE_URI(self):                         
-        value = os.environ.get("DB_URI")                            
-        if not value:
-            raise ValueError("SQLALCHEMY_DATABASE_URI is not set")  
-        return value    
+    # @property
+    # def AWS_ACCESS_KEY_ID(self):                                
+    #     value = os.environ.get("AWS_ACCESS_KEY_ID")                 
+    #     if not value:
+    #         raise ValueError("AWS_ACCESS_KEY_ID is not set")        
+    #     return value
 
 
-    @property
-    def AWS_ACCESS_KEY_ID(self):                                
-        value = os.environ.get("AWS_ACCESS_KEY_ID")                 
-        if not value:
-            raise ValueError("AWS_ACCESS_KEY_ID is not set")        
-        return value
+    # @property
+    # def AWS_SECRET_ACCESS_KEY(self):                            
+    #     value = os.environ.get("AWS_SECRET_ACCESS_KEY")             
+    #     if not value:
+    #         raise ValueError("AWS_SECRET_ACCESS_KEY is not set")    
+    #     return value
 
 
-    @property
-    def AWS_SECRET_ACCESS_KEY(self):                            
-        value = os.environ.get("AWS_SECRET_ACCESS_KEY")             
-        if not value:
-            raise ValueError("AWS_SECRET_ACCESS_KEY is not set")    
-        return value
-
-
-    @property
-    def AWS_S3_BUCKET(self):                                     
-        value = os.environ.get("AWS_S3_BUCKET")                     
-        if not value:
-            raise ValueError("AWS_S3_BUCKET is not set")            
-        return value
+    # @property
+    # def AWS_S3_BUCKET(self):                                     
+    #     value = os.environ.get("AWS_S3_BUCKET")                     
+    #     if not value:
+    #         raise ValueError("AWS_S3_BUCKET is not set")            
+    #     return value
 
 
 
