@@ -47,4 +47,3 @@ jobs:
             python3.8 -m venv /home/test/T4A2-B/src/venv
             source /home/test/T4A2-B/src/venv/bin/activate
             /home/test/T4A2-B/src/venv/bin/pip3.8 install -r /home/test/T4A2-B/src/requirements.txt
-
